@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    
+    <div class="container">
+        <div class="text-center" style="background: rgb(0,153,220);">
+            <h1>Fiche du Licencier</h1>
+        </div>
+
+        <table class="table" style="background: rgb(198,199,200);">
+            <tbody>
+                <tr>
+                    <th>Association</th>
+                    {% for association in user.association %}
+                    <td>{{ association }}</td>
+                    {% endfor %}
+                <tr>
+                    <th>Numero de Licence</th>
+                    <td>{{ user.numLicence }}</td>
+                </tr>
+                <tr>
+                    <th>civilité</th>
+                    <td>{{ user.civilite }}</td>
+                </tr>
+                <tr>
+                    <th>Votre Nom</th>
+                    <td>{{ user.nomUser }}</td>
+                </tr>
+                <tr>
+                    <th>votre Nom de jeune fille</th>
+                    <td>{{ user.nomFille }}</td>
+                </tr>
+                <tr>
+                    <th> votre Prénom</th>
+                    <td>{{ user.prenomUser }}</td>
+                </tr>
+                <tr>
+                    <th>Votre date de naissance</th>
+                    <td>{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : '' }}</td>
+                </tr>
+                <tr>
+                    <th>Role du Licencié</th>
+                    <td>{{ user.role }}</td>
+                </tr>
+                <tr>
+                    <th>Votre Numero de Téléphone 1</th>
+                    <td>{{ user.tel1 }}</td>
+                </tr>
+                <tr>
+                    <th>Votre Numero de Téléphone 2</th>
+                    <td>{{ user.tel2 }}</td>
+                </tr>
+                <tr>
+                    <th>Vos activités Sportives</th>
+                    <th>
+                    {% for activ in activite %}
+                    <div>{{ activ.titleActivite }}</div>
+                    {% endfor %}
+                    </th>
+                </tr>
+                <tr>
+                    <th>Votre Email</th>
+                    <td>{{ user.emailUser }}</td>
+                </tr>
+                <tr>
+                    <th>Votre adresse</th>
+                    <td>{{ user.rue }}</td>
+                </tr>
+                <tr>
+                    <th>Votre Code Postal</th>
+                    <td>{{ user.cpUser }}</td>
+                </tr>
+                <tr>
+                    <th>Votre Ville</th>
+                    <td>{{ user.villeUser }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-4">
+                <a href="{{ path('users_index', {'id': app.user.getAssociationId() }) }}" class="btn btn-primary">Retour à la liste de vos licenciers</a>
+            </div>
+            <div class="col-5">
+                <a href="{{ path('users_edit', {'id': user.id}) }}" class="btn btn-primary">editer</a>
+            </div>
+        </div>
+        {{ include('users/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

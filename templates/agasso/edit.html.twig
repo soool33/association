@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AgassoController!{% endblock %}
+
+{% block body %}
+    <h2 class="text-center">editer les A.G de {{ app.user.association }}</h2>
+    <div class="containerr">
+        {{ form_start(form) }}
+            {{ form_widget(form.ag,{'attr':{'placeholder':'ag'}}) }}
+            {{ form_widget(form.imageFile) }}
+            {{ form_widget(form.dateAg) }}
+            <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

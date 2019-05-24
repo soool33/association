@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users index{% endblock %}
+
+{% block body %}
+    <div style="background: rgba(198,199,200,0.5);">
+        <h1 class="text-center">liste des licenciers</h1>
+    </div>
+
+    <table class="table text-center">
+        <thead style="background: rgba(14,48,131,0.5);">
+            <tr>
+                <th>Id</th>
+                <th>Association</th>
+                <th>Numero de licence</th>
+                <th>choisir votre civilité</th>
+                <th>Nom</th>
+                <th>Nom de jeune fille</th>
+                <th>Prenom</th>
+                <th>Date de naissance</th>
+                <th>Role du Licencié</th>
+                <th>Telephone 1</th>
+                <th>Telephone 2</th>
+                <th>Email</th>
+                <th>adresse</th>
+                <th>code postal</th>
+                <th>Ville</th>
+                <th>actions</th>
+                
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for user in users %}
+            <tr style="background: rgba(0,153,220,0.5);">
+                <td>{{ user.id }}</td>
+                {% for association in user.association %}
+                <td>{{ association }}</td>
+                {% endfor %}
+                <td>{{ user.numLicence }}</td>
+                <td>{{ user.civilite }}</td>
+                <td>{{ user.nomUser }}</td>
+                <td>{{ user.nomFille }}</td>
+                <td>{{ user.prenomUser }}</td>
+                <td>{{ user.dateNaissance ? user.dateNaissance | date('d-m-Y') : '' }}</td>
+                <td>{{ user.role }}</td>
+                <td>{{ user.tel1 }}</td>
+                <td>{{ user.tel2 }}</td>
+                <td>{{ user.emailUser }}</td>
+                <td>{{ user.rue }}</td>
+                <td>{{ user.cpUser }}</td>
+                <td>{{ user.villeUser }}</td>
+                <td>
+                    <a href="/admin/user/{{ user.id }}">Voir</a>
+                    <a href="/admin/user/{{ user.id }}/edit">editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('users_new',{'id': app.user.getAssociationId()} ) }}">Créer un nouveau licencier</a>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html.twig" %}
+
+
+
+{% block body %}
+
+<body>
+    <div class="container">
+        <h2 class="ryan1">GESTION DE VOTRE ASSOCIATION SPORTIVE</h2>
+        <h3 class="ryan1">{{ app.user.association }}</h3>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <img src="/images/ballzen(2).jpg" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h4>ASSOCIATION</h4>
+                        </div>
+                        <div class="card-text">
+                            <a href="/admin/assos/{{ app.user.getAssociationId() }}/edit">- Modifier votre ASSOCIATION</a></br>
+                            <a href="/admin/assos/{{ app.user.getAssociationID() }}">- Votre club</a></br>
+                            <a href="../{{ app.user.getAssociationId() }}/agasso">-Les ag</a>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+                    
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <img src="/images/AerobicTraining1.png" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h4>LICENCIERS</h4>
+                        </div>
+                        <div class="card-text">
+                            <a href="{{ app.user.getAssociationId() }}/users/new">- Creer Vos LICENCIERS</a></br>
+                            <a href="{{ app.user.getAssociationId() }}/users">- Gérer vos LICENCIERS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <img src="/images/abdos_fessier(2).jpg" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h4>EVENEMENTS</h4>
+                        </div>
+                        <div class="card-text">
+                            <a href="events/new">- Créer Vos EVENEMENTS</a></br>
+                            <a href="/events">- Gérer vos EVENEMENTS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="card text-center">
+                    <div class="card-block">
+                        <img src="/images/BodyBalance.png" alt="" class="img-fluid">
+                        <div class="card-title">
+                            <h4>COMPTABILITE</h4>
+                        </div>
+                        <div class="card-text">
+                            <a href="https://www.youtube.com/watch?v=7iwIb7H2jT8">- TUTO explication de la mise en route de votre COMPTABILITE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

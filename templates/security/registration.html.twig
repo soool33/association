@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">Connexion à votre Association</h1>
+
+    {{ form_start(form) }}
+    <div class="container">
+        {{ form_row(form.utilisateurname, {'label': 'Nom d\'utilisateur', 'attr': {'placeholder': 'Votre Nom'}}) }}
+        {{ form_row(form.email, {'label': 'Votre Email', 'attr': {'placeholder': 'Votre Email'}}) }}
+        {{ form_row(form.password, {'label': 'Votre password', 'attr': {'placeholder': 'Votre Password'}}) }}
+        {{ form_row(form.confirm_password, {'label': 'Confirmez votre Password', 'attr': {'placeholder': 'Confirmez votre Password'}}) }}
+
+        <button type="submit" class="btn btn-success">Enregistrement !</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

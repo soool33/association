@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AgassoController!{% endblock %}
+
+{% block body %}
+    <div class="containerr">
+        {{ form_start(form) }}
+            {{ form_widget(form.ag,{'attr':{'placeholder':'ag'}}) }}
+            {{ form_widget(form.imageFile) }}
+            {{ form_widget(form.date_ag) }}
+            <button type="submit">Ajouter</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

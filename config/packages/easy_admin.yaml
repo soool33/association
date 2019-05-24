@@ -1,0 +1,96 @@
+easy_admin:
+    user:
+        display_name: true
+        display_avatar: false
+    formats:
+        datetime: 'd/m/Y H:i:s'
+    design:
+        menu:
+            - { button: 'utilisateur', url: '/register', label: 'creer utilisateur' }
+            - { entity: 'Events' }
+            - { entity: 'Association' }
+            - { entity: 'Activites' }
+            - { entity: 'User' }
+            - { entity: 'Users' }
+    entities:
+        Users:
+            label: Licenciers
+            list:
+                title: Liste des licenciers     
+            class: App\Entity\Users
+            form:
+                fields:
+                    - { property: 'association', label: 'association' }
+                    - { property: 'num_licence', label: 'Numéro de Licence' }
+                    - { property: 'civilite', type: 'choice', type_options: { expanded: true, choices: '%gender%'}, label: 'Etat civil' }
+                    - { property: 'nom_user', label: 'Nom' }
+                    - { property: 'nom_fille', label: 'Nom de jeune fille' }
+                    - { property: 'prenom_user', label: 'Prénom' }
+                    - { property: 'date_naissance', label: 'Date de Naissance', type: 'birthday' }
+                    - { property: 'role', label: 'Rôle du licencié'}
+                    - { property: 'tel1', label: 'Téléphone 1' }
+                    - { property: 'tel2', label: 'Téléphone 2' }
+                    - { property: 'email_user', label: 'Email' }
+                    - { property: 'rue', label: 'Adresse' }
+                    - { property: 'cp_user', label: 'Code postal' }
+                    - { property: 'ville_user', label: 'Ville' }
+                    - { property: 'activite_user', label: 'Activités Sportives' }
+                    - { property: 'role', type: 'choice', type_options: { expanded: true, choices: '%roles%'}, label: 'role dans le club' }
+
+        User:
+                label: User
+                list:
+                    title: les users
+                class: App\Entity\User
+        Activites:
+                label: Activites
+                list:
+                    title: Gerer les Activités
+                class: App\Entity\Activites
+                form:
+                    fields:
+                        - { property: 'title_activite', label: "titre de l'activité"}
+                        - { property: 'decript_activite', label: "description de l'activité"}
+                        - { property: 'imageFile1', type: 'vich_file', label: 'image 1'}
+                        - { property: 'imageFile2', type: 'vich_file', label: 'image 2'}
+                        - { property: 'imageFile3', type: 'vich_file', label: 'image 3'}
+        Events:
+            label: Evenements
+            list:
+                title: Gerer les evenements
+            class: App\Entity\Events
+            form:
+                fields:
+                    - { property: 'title', label: 'titre'}
+                    - { property: 'lieu', label: 'lieu'}
+                    - { property: 'date_event', label: 'date'}
+                    - { property: 'descript_event', label: 'description'}
+                    - { property: 'imageFile1', type: 'vich_file', label: 'image 1'}
+                    - { property: 'imageFile2', type: 'vich_file', label: 'image 2'}
+                    - { property: 'imageFile3', type: 'vich_file', label: 'image 3'}
+                    - { property: 'imageFile4', type: 'vich_file', label: 'image 4'}
+        Association:
+            label: Associations
+            list:
+                title: Gerer les associations
+            class: App\Entity\Association
+            form:
+                fields:
+                    - { property: 'num_asso', label: 'numero asso'}
+                    - { property: 'nom_asso', label: 'nom asso'}
+                    - { property: 'adresse_asso', label: 'adresse'}
+                    - { property: 'cp_asso', label: 'code postal'}
+                    - { property: 'imageFile', type: 'vich_file', label: 'logo'}
+                    - { property: 'ville_asso', label: 'ville asso'}
+                    - { property: 'tel1_asso', label: 'telephone  1'}
+                    - { property: 'tel2_asso', label: 'telephone 2'}
+                    - { property: 'date_creation', label: 'date de creation asso', type: 'birthday'}
+                    - { property: 'adress_correspondant', label: 'adresse de correspondant'}
+                    - { property: 'activites', label: 'activites' }
+                    - { property: 'Publique', label: 'Publique dans asso'}
+                    - { property: 'imageFile1', type: 'vich_file', label: 'siret'}
+                    - { property: 'imageFile2', type: 'vich_file', label: 'journal'}
+                    - { property: 'imageFile3', type: 'vich_file', label: 'diplome cadre'}
+                    - { property: 'imageFile5', type: 'vich_file', label: 'statut asso'}
+                    - { property: 'imageFile4', type: 'vich_file', label: 'reglement interieur'}
+                    

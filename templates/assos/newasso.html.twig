@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">
+       
+    </h1>
+
+    <div class="containerr">
+        {{ form_start(form) }}
+        {{ form_widget(form.imageFile,{'attr':{'placeholder':'logo'}}) }}
+        {{ form_widget(form.numAsso,{'attr':{'placeholder':'numero association'}}) }}
+        {{ form_widget(form.nomAsso, {'attr':{'placeholder':'nom de l\'association'}}) }}
+        {{ form_widget(form.adresseAsso,{'attr':{'placeholder':'adresse asso'}}) }}
+        {{ form_widget(form.cpAsso,{'attr':{'placeholder':'cp association'}}) }}
+        {{ form_widget(form.villeAsso,{'attr':{'placeholder':'ville'}}) }}
+        {{ form_widget(form.tel1Asso,{'attr':{'placeholder':'numero de telephone fixe'}}) }}
+        {{ form_widget(form.tel2Asso,{'attr':{'placeholder':'numero de telephone mobile'}}) }}
+        {{ form_widget(form.dateCreation,{'attr':{'placeholder':'date de creation'}}) }}
+        {{ form_widget(form.adressCorrespondant,{'attr':{'placeholder':'adresse de correspendant'}}) }}
+        {{ form_widget(form.publique,{'attr':{'placeholder':'type de publique'}}) }}
+        {{ form_widget(form.activites,{'attr':{'placeholder':'activites du club'}}) }}
+        {{ form_widget(form.imageFile1,{'attr':{'placeholder':'status'}}) }}
+        {{ form_widget(form.imageFile2,{'attr':{'placeholder':'journal de l\'association'}}) }}
+        {{ form_widget(form.imageFile3,{'attr':{'placeholder':'siret'}}) }}
+        {{ form_widget(form.imageFile4,{'attr':{'placeholder':'reglement interieur'}}) }}
+        {{ form_widget(form.imageFile5,{'attr':{'placeholder':'diplome cadre'}}) }}
+       <button type="submit">
+                Modifier asso
+        </button>
+        {{ form_end(form) }}
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <section class="container sec1 mb-5">
+    <h2 style="color:red; padding-top: 40px;" class="text-center">Decouvrez tous les evenements</h2>
+        <div class="row">
+                {% for event in events %}
+                    <div style="background: #444 url('../images/uploads/{{ event.imageName1 }}') no-repeat center; background-size: cover;" class="card1 col-lg-4 col-md-5">
+                        <div class="card-info">
+                            <!--<img src="http://placehold.it/255x180"> -->
+                            <h3>{{ event.title }}</h3>
+                            <h5>{{ event.lieu }}</h5>
+                            <h6>{{ event.dateEvent|date('d-m-Y') }}</h6>
+                    
+                            <div class="links">
+                                <a class="participe" href="../{{event.id}}/inscription/event/new">participer</a>
+                                <a href="{{ path('event', {'id': event.id}) }}">plus</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(events)}}
+        </div>
+    </section>
+    <section>
+        <footer>
+            <div class="text-center">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x foot"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x foot"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter-square fa-2x foot"></i></a>
+                <a href="https://www.pinterest.fr/"><i class="fab fa-pinterest-square fa-2x foot"></i></a>
+            </div>
+        </footer>
+    </section>
+{% endblock %}

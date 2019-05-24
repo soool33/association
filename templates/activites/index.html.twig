@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello ActivitesController!{% endblock %}
+
+{% block body %}
+
+
+
+<section class="activites">
+    {% for activites in activites %}
+        <div class="container">
+            <h4 class="card-title">{{ activites.titleActivite }}</h4>
+            <div class="card" style="width:400px">
+                <img class="card-img-top" src="images/uploads/{{ activites.imageName1 }}" alt="" style="width:100%">
+                <div class="card-body">
+                    <p class="card-text">{{ activites.decriptActivite }}</p>
+                </div>
+                <a href="{{ path('activites_show', {'id': activites.id}) }}" class="btn btn-primary">Lire la suite</a>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+<script> baguetteBox.run('.card-gallery', {animation: 'slideIn'})</script>
+
+{% endblock %} 

@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    
+    <section class="premiere-section">
+        <div class="row">
+            <div class="col-6 text-center">
+                <img src="images/logo-sport1.jpg">
+            </div>
+        </div>
+        <div class="text-center arrow" id="secc1"><a href="#secc1"><i class="fas fa-chevron-circle-down fa-2x"></i></a></div>
+    </section>
+
+    <section class="container sec" >
+        <h1 style="color:white; font-weight: bold;" class="text-center">- Mot de la presidente -</h1>
+        <div class="first-section">
+            <img class="img-fluid" src="https://www.fillmurray.com/300/200">
+                <p class="size">Madame, Monsieur,<br />
+                C'est avec plaisir que nous vous informons de l'ouverture de notre nouvelle application web : "ASSO.87".
+                Après plusieurs semaines de développement, nous sommes heureux de pouvoir vous présenter la vitrine de notre Comité départemental haute-vienne sur la toile. Cette application Web a été pensé pour vous, les bureaux des clubs, mais aussi pour vos pratiquants.
+                Il permettra d'accompagner notre essor commun et de faciliter vos démarches administratives pour vos clubs.
+                Vous y trouverez une création et des informations sur vos évenements, la gestion compléte de votre association, une cellule d'achat relié directement à notre fédération Sports pour tous.<br />
+                N'hésitez pas à nous transmettre vos remarques vos subjections pour améliorer cette application Web, par le biais du formulaire de contact.
+                En espérant que vous apprécierez ce nouveau moyen mis à votre disposition, nous vous souhaitons une bonne découverte de cette application.<br />
+                Très cordialement, la présidente du CD87<br/><br/>
+                Bernadette Chanton</p>
+        </div>
+    </section>
+
+    <section class="sec2 sec1 container" id="secc2">
+        <div>
+            <div>
+                <h2 class="text-center titresec2">Plus de 150 activités à découvrir</h2>
+                <h4 class="text-center">Trouvez le club qui vous convient</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <p>Tournés autour de la convivialité, des rencontres, de la solidarité et du partage.</p>
+                    <p>Les clubs Sports pour Tous proposent la pratique de près de 150 activités différentes.</p>
+                    <p>Qu'importe votre niveau, on est là avant tout pour se faire plaisir !</P>
+                    <p>Parmis toutes ces activités proposées par les Clubs Sports pour Tous</p>
+                    <p>Trouvez celle qui correspond à vos envies, vos motivations...</p>
+                    <p>Alors, pour quelle(s) raison(s) souhaitez-vous pratiquer une activité physique ?</p>
+                </div>
+
+                <div class="col-6">
+                    <img src="images/carte.png" class="img-fluid">
+                </div>
+
+                <div>
+                    <a href="" class="btn btn-secondary btn-ouline-info">S'entretenir</a>
+                    <a href="" class="btn btn-secondary btn-ouline-info">Se relaxer</a>
+                    <a href="" class="btn btn-secondary btn-ouline-info">Explorer</a>
+                    <a href="" class="btn btn-secondary btn-ouline-info">Se défouler</a>
+                    <a href="" class="btn btn-secondary btn-ouline-info">Jouer</a>
+                    <a href="" class="btn btn-secondary btn-ouline-info">S'exprimer</a>
+                </div>
+
+            </div>
+        </div>
+    </section> 
+
+    <section class="container sec3 sec1">
+        <div>
+            <h2 class="text-center titresec2">Participez a de nombreux evenements</h2>
+        </div>
+        <div class="row">
+            {% for event in events %}
+                <div style="background: #444 url('../images/uploads/{{ event.imageName1 }}') no-repeat center; background-size: cover;" class="card1 col-lg-4 col-md-5">
+                    <div class="card-info">
+                        <h3>{{ event.title }}</h3>
+                        <h5>{{ event.lieu }}</h5>
+                        <h6>{{ event.dateEvent|date('d-m-Y') }}</h6>
+
+                        <div class="links">
+                            <a class="participe" href="../{{event.id}}/inscription/event/new">participer</a>
+                            <a href="{{ path('event', {'id': event.id}) }}">plus</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+         <div class="text-center"><a href="/events">voir plus d'evenements...</a></div>
+    </section>
+
+    <section class="container sec4">
+        <div class="containerr">
+            <div class="text-center"><h1>CONTACT</h1><p>Contactez nous pour des renseignements</p></div>
+                {{ form_start(form) }}
+                {{ form_widget(form.nom, {'attr':{'placeholder':'votre nom...'}}) }}
+                {{ form_widget(form.prenom, {'attr':{'placeholder':'votre prenom...'}}) }}
+                {{ form_widget(form.email, {'attr':{'placeholder':'votre email...'}}) }}
+                {{ form_widget(form.sujet, {'attr':{'placeholder':'sujet...'}}) }}
+                {{ form_widget(form.message, {'attr':{'placeholder':'votre message...'}}) }}
+                {{ form_end(form) }}
+        </div>
+    </section>
+    <section>
+        <footer>
+            <div class="text-center">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook fa-2x foot"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x foot"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter-square fa-2x foot"></i></a>
+                <a href="https://www.pinterest.fr/"><i class="fab fa-pinterest-square fa-2x foot"></i></a>
+            </div>
+        </footer>
+    </section>
+
+{% endblock %}

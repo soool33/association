@@ -1,0 +1,11 @@
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    {% for activite in activites %}
+    {{ activite }}
+   
+    {% endfor %}
+    {% dump(activites) %}
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
+

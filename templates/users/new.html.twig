@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau licencié{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="text-center" style="background: rgb(0,153,220)";>
+        <h1>Creer un nouveau licencier dans : {{asso.nomAsso}}</h1> 
+    </div>
+    {{ include('users/_form.html.twig') }}
+    <div>
+        <a class="btn btn-primary" href="{{ path('users_index', {'id': app.user.getAssociationId() }) }}">retour à la liste</a>
+    </div> 
+</div>
+{% endblock %}

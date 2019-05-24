@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+    
+        <div class="offset-1 col-4">
+            <div class="madiva">
+                <img class="image img-fluid" src="/images/uploads/{{ asso.imageName  }}">
+                <div class="text-center"> {% for publique in asso.publique %}
+                {{ publique }}
+                {% endfor %}
+               
+                </div>
+                <div class="text-center">{{ asso.adresseAsso }} {{ asso.villeAsso }} {{ asso.cpAsso }}</div>
+                <div class="text-center">{{ asso.tel1Asso }}</div>
+                <div class="text-center">{{ asso.tel2Asso }}</div>
+                {%for activites in asso.activites%} 
+                    <div>{{ activites }}</div>
+                {% endfor %} 
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="pd12">
+<div class="container">
+   <div class="row">
+       <div class="offset-1 col-4">
+           <div class="madiva">
+               <img class="image img-fluid" src="/images/uploads/{{ asso.imageName  }}">
+
+               <div class="text-center">
+                   <h3 style="font-weight: bold;">{{ asso.nomAsso }}</h3>
+               </div>
+               <div class="text-center">
+                   {{ asso.adresseAsso }}
+               </div>
+               <div class="text-center">
+                   {{ asso.villeAsso }}
+               </div>
+               <div class="text-center">
+                   {{ asso.cpAsso }}
+               </div>
+               <div class="text-center">
+               {{ asso.tel1Asso }}
+               </div></br>
+
+               <div class="text-center">
+                   <label style="text-decoration: underline;">Publique de l'ASSO</label>
+                   <h4>{% for publique in asso.publique %}</h4>
+                   {{ publique }}</br>
+                   {% endfor %}
+               </div></br>
+               <div class="text-center">
+                   <label style="text-decoration: underline;">Activité(s) proposée(s)</label></br>
+                   {% for activites in asso.activites %}
+                   {{ activites }}</br>
+                   {% endfor %}
+               </div></br>
+               <a href="{{path('agasso', {'id': asso.id})}}" class="btn btn-primary">Documents Assemblée Genérale</a></br>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+{% endblock %}

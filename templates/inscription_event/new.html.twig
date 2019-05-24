@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <h1 class="container text-center sec1" style="color:darkblue">
+        inscrivez vous a l'evenement {{ event.title }}
+    </h1>
+
+    <div class="containerr">
+        {{ form_start(form) }}
+        {{ form_widget(form.nom,{'attr':{'placeholder':'nom'}}) }}
+        {{ form_widget(form.prenom,{'attr':{'placeholder':'prenom'}}) }}
+        {{ form_widget(form.email,{'attr':{'placeholder':'email'}}) }}
+        <button type="submit">inscription</button> 
+        {{ form_end(form) }} 
+    </div>
+    
+{% endblock %}

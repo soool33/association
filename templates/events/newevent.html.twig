@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <h1 class="text-center">
+        {% if editMode %}
+            Mettre a jour contenu
+        {% else %}
+            Creation d'event
+        {% endif %}
+    </h1>
+
+    <div class="containerr">
+        {{ form_start(form) }}
+        {{ form_widget(form.title,{'attr':{'placeholder':'titre'}}) }}
+        {{ form_widget(form.lieu,{'attr':{'placeholder':'lieu'}}) }}
+        {{ form_widget(form.dateEvent) }}
+        {{ form_widget(form.imageFile1,{'attr':{'placeholder':'photo 1'}}) }}
+        {{ form_widget(form.imageFile2,{'attr':{'placeholder':'photo 2'}}) }}
+        {{ form_widget(form.imageFile3,{'attr':{'placeholder':'photo 3'}}) }}
+        {{ form_widget(form.imageFile4,{'attr':{'placeholder':'photo 4'}}) }}
+        {{ form_widget(form.descriptEvent,{'attr':{'placeholder':'decrivez l\'evenement'}}) }}
+        <button type="submit">
+            {% if editMode %}
+                Modifier
+            {% else %}
+                Ajouter
+            {% endif %}
+        </button>
+        {{ form_end(form) }}
+        
+    </div>
+{% endblock %}

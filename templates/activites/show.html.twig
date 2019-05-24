@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+
+    <activite>
+        <div class="container">
+            <div class="content">
+            <h2>{{ activites.titleActivite }}</h2>
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="{{ activites.imageFile1 | raw }}" alt="" style="width:100%">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><p>{{ activites.decriptActivite | raw }}</p></p>
+                </div>
+            </div>
+            <br>
+            <a href="/activites" type="button">retour à la liste</a>
+        </div> 
+    </activite>
+
+{% endblock %}
